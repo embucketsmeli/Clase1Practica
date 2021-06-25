@@ -17,33 +17,41 @@ public class Main {
     ejercicioCinco();
   }
 
+  /**
+   * mostrar los primeros n numeros pares
+   */
   public static void ejercicioUno() {
     System.out.println("escribe un numeros");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
+    //de 1 a n
     for (int i = 1; i < n; i++) {
+      //si es par
       if (i % 2 == 0) {
+        //imprime
         System.out.println(i);
       }
     }
   }
 
+  /**
+   * mostrar los primeros n multiplos de m
+   */
   public static void ejercicioDos() {
     System.out.println("escribe dos numeros");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     int m = scanner.nextInt();
-<<<<<<< HEAD
-    for (int i = 1; i < n; i++){
-      Float result = Float.valueOf(m / i);
-      System.out.println(String.format("%d / %d = %d", m, i));
-=======
     Float mfloat = (float) m;
     int count = 0;
+    //de 2 a m
     for (int i = 2; i < m || count > n; i++) {
+      //los casteamos a float para ver decimales
       Float ifloat = (float) i;
       float result = mfloat / ifloat;
+      // si no tiene decimales
       if (result % 1 == 0) {
+        //imprime el multiplo
         count++;
         System.out.println(String.format("%d es multiplo de %d", m, i));
       }
@@ -52,14 +60,16 @@ public class Main {
   }
 
 
+  /**
+   * mostar si el numero es primo o no
+   */
   public static void ejercicioTres() {
     System.out.println("escribe un numero");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     boolean isPrime = isPrime(n);
-    if (isPrime){
+    if (isPrime) {
       System.out.println("El numero es primo");
-
     } else {
       System.out.println("El numero no es primo");
     }
@@ -76,7 +86,11 @@ public class Main {
 //    }
   }
 
-  public static boolean isPrime(int n){
+  /**
+   * @param n numero a validar si es primo
+   * @return true si es primo de lo contrario false
+   */
+  public static boolean isPrime(int n) {
     boolean isprime = true;
     int mitad = n / 2;
     for (int i = 2; i <= mitad; i++) {
@@ -88,36 +102,44 @@ public class Main {
     return isprime;
   }
 
+  /**
+   * Primeros n numeros primos
+   */
   public static void ejercicioCuatro() {
     System.out.println("escribe un numero");
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     for (int i = 2; i <= n; i++) {
-      boolean isPrime = isPrime(i);
-      if (isPrime){
+      if (isPrime(i)) {
         System.out.println(i);
       }
->>>>>>> beaeffbd1b1d0b3671dbc6d4321f181d5654b11f
     }
 
   }
 
+  /**
+   * primeras n numeros naturales con almenos m ocurrencias del digito d
+   */
   public static void ejercicioCinco() {
     System.out.println("escribe tres numero");
     Scanner scanner = new Scanner(System.in);
     int cuentosNumeros = scanner.nextInt();
     int alMenos = scanner.nextInt();
     int digitoRepetido = scanner.nextInt();
-    int countFound = 0;
+    int numerosNaturalesEncontrados = 0;
+    // regex que agrupa el digitoRepetido a encontrar
     Pattern pattern = Pattern.compile(String.valueOf(String.format("(%d)", digitoRepetido)));
-    for (int i = 0 ; i< Integer.MAX_VALUE && countFound < cuentosNumeros; i++){
+    for (int i = 0; i < Integer.MAX_VALUE && numerosNaturalesEncontrados < cuentosNumeros; i++) {
       Matcher matcher = pattern.matcher(String.valueOf(i));
-      int countFinds = 0;
-      while (matcher.find()){
-        countFinds++;
+      int ocurrenciasDelDigito = 0;
+      // while que cuenta las veces que se encontro el digitoRepetido a encontrar
+      while (matcher.find()) {
+        ocurrenciasDelDigito++;
       }
-      if (countFinds == alMenos){
-        countFound++;
+      //si se encontro el digitoRepetido varias veces
+      if (ocurrenciasDelDigito >= alMenos) {
+        //imprime
+        numerosNaturalesEncontrados++;
         System.out.println(i);
       }
     }
