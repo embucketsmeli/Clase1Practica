@@ -30,7 +30,7 @@ public class Main {
     int m = scanner.nextInt();
     for (int i = 1; i < n; i++){
       Float result = Float.valueOf(m / i);
-      System.out.println(String.format("%d / %d = %d", m, i, ));
+      System.out.println(String.format("%d / %d = %d", m, i));
     }
   }
 
