@@ -33,6 +33,11 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     int m = scanner.nextInt();
+<<<<<<< HEAD
+    for (int i = 1; i < n; i++){
+      Float result = Float.valueOf(m / i);
+      System.out.println(String.format("%d / %d = %d", m, i));
+=======
     Float mfloat = (float) m;
     int count = 0;
     for (int i = 2; i < m || count > n; i++) {
@@ -92,6 +97,7 @@ public class Main {
       if (isPrime){
         System.out.println(i);
       }
+>>>>>>> beaeffbd1b1d0b3671dbc6d4321f181d5654b11f
     }
 
   }
